@@ -1,0 +1,110 @@
+<section class="sectionGeneral">
+    <section class="sectionForm">
+        <form (ngSubmit)="onSubmit()" #formulario="ngForm" novalidate>
+            <section>
+                <h2>form</h2>        
+            </section>
+
+            <section class="sectionImagen">
+                <img src="./assets/fresa.png">
+            </section>
+            
+            <section class="sectionMat">
+                <mat-form-field appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <select matNativeControl required id="title" [(ngModel)] ="datos[0].title" name="title">
+                        <option value="mr">Mr</option>
+                        <option value="mrs">Mrs</option>
+                        <option value="miss">Miss</option>
+                        <option value="ms">ms</option>
+                    </select>
+                    <mat-error *ngIf="formulario.controls['title'].hasError('required')">Title is required</mat-error>
+                </mat-form-field>
+                    
+            </section>
+
+            <section class="sectionMat">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput type="text" id="firstname" name="firstname" [(ngModel)] ="firstname" required>
+                    <button matSuffix mat-icon-button aria-label="Clear" type="text" id="fir">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formulario.controls['firstname'].hasError('required')">Firstname is required</mat-error>
+                </mat-form-field>
+                    
+            </section>
+
+            <section class="sectionMat">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" id="lastname" [(ngModel)] ="datos[0].lastname" name="lastname" required>
+                    <button matSuffix mat-icon-button aria-label="Clear" type="text" id="las">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formulario.controls['lastname'].hasError('required')">Lastname is required</mat-error>
+                </mat-form-field>            
+            </section>
+
+            <section class="sectionMat">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" id="email" [(ngModel)]="datos[0].email" name="email" required>
+                    <button matSuffix mat-icon-button aria-label="Clear" type="text" id="ema">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formulario.controls['email'].hasError('required')">Email is required</mat-error>
+                </mat-form-field>            
+            </section>
+
+            <section class="sectionMat">
+                <mat-form-field appearance="fill">
+                    <mat-label>Role</mat-label>
+                    <select matNativeControl required id="role" [(ngModel)]="datos[0].role" name="role" required>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                <mat-error *ngIf="formulario.controls['role'].hasError('required')">Role is required</mat-error>
+                </mat-form-field>        
+            </section>
+
+            <section class="sectionMat">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'"  id="password" [(ngModel)] ="datos[0].password" name="password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type="text" id="pas">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="formulario.controls['password'].hasError('required')">Password is required</mat-error>
+                </mat-form-field>            
+            </section>
+
+            <section class="sectionButton">
+                <button mat-raised-button color="primary" type="submit" value="Submit">Enviar</button>
+            </section>               
+        </form>
+    </section>
+</section>
+
+
+<!-- <h2 class="text-center">Registro de Usuarios</h2>
+<section class="container">
+    <form (ngSubmit)="onSubmit()">
+        <section class="form-group m-2">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="datos.name" name="name">
+        </section>
+
+        <section class="form-group m-2">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="datos.username" name="username">
+        </section>
+        <section class="form-group m-2">
+            <input type="submit" class="btn btn-success" value="Submit">
+        </section>
+    </form>
+</section> -->
+
+
+
+
